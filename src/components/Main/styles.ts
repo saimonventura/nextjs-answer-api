@@ -10,7 +10,8 @@ export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  position: relative;
 `;
 
 // export const Logo = styled.img`
@@ -31,3 +32,14 @@ export const Description = styled.h2`
 //   margin-top: 3rem;
 //   width: min(30rem, 100%);
 // `;
+
+export const SearchWrapper = styled.div`
+  position: sticky;
+  margin: 2rem;
+`;
+
+export const InputQuestion = styled.input``;
+
+export const SearchButton = styled.button``;
+
+export const AnswerWrapper = styled.div``;
