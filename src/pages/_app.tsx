@@ -1,11 +1,13 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { ApolloProvider } from "@apollo/client";
 
 import GlobalStyles from "styles/global";
+import { apolloClient } from "graphql/client";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ApolloProvider client={apolloClient}>
       <Head>
         <title>NextJS - AnswerAPI - GraphQL</title>
         <link rel="shortcut icon" href="/img/icon-512.png" />
@@ -19,7 +21,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
-    </>
+    </ApolloProvider>
   );
 }
 
