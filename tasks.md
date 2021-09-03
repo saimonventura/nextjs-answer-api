@@ -10,11 +10,11 @@
 
 - [x] Install ApolloClient to this web app.
 
-- [ ] Now fetch the answers via ApolloClient and store them in the cache.
+- [x] Now fetch the answers via ApolloClient and store them in the cache.
 
-- [ ] Make sure the answers are bound in the UI, so that any change in the cache is reflected immediately.
+- [x] Make sure the answers are bound in the UI, so that any change in the cache is reflected immediately.
 
-- [ ] The user should be able to set the question as part of the url path and this should return the answer as server-side-rendered html.
+- [x] The user should be able to set the question as part of the url path and this should return the answer as server-side-rendered html.
 
 - [ ] Add internationalization for two languages. The user should have a way to switch between them.
 
