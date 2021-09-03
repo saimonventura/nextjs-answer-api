@@ -1,46 +1,41 @@
-import { useCallback, useState } from "react";
-import { AnswerService } from "services/AnswerService";
-import { AnswerResponseType } from "types/types";
-import * as S from "./styles";
+import GraphQLAnswer from "components/GraphQLAnswer";
+import { FC, useCallback, useRef, useState } from "react";
+import * as Type from "types/types";
+import * as Style from "./styles";
+import * as SharedStyle from "../sharedStyle";
 
-const Main = ({
+const Main: FC<Type.MainProps> = ({
   title = "NextJS - AnswerAPI - GraphQL",
   description = "TypeScript, React, NextJS, GraphQL, AnswerAPI and Styled Components",
+  serverSideData,
 }) => {
-  const [answer, setAnswer] = useState<AnswerResponseType>();
-  const [question, setQuestion] = useState("");
+  const [search, setSearch] = useState("");
 
-  const onClickSearch = useCallback(() => {
-    AnswerService.GetAnswer(question, setAnswer);
-  }, [question]);
+  const ref = useRef<Type.GraphQLAnswer>(null);
+
+  const handleSearch = useCallback(() => {
+    ref.current?.execute(search);
+  }, [search]);
 
   return (
-    <S.Wrapper>
-      <S.Title>{title}</S.Title>
-      <S.Description>{description}</S.Description>
-      <S.SearchWrapper>
-        <S.InputQuestion
+    <SharedStyle.Wrapper>
+      <Style.Title>{title}</Style.Title>
+      <Style.Description>{description}</Style.Description>
+      <Style.SearchWrapper>
+        <Style.InputQuestion
           onKeyDown={({ key }) => {
             if (key === "Enter") {
-              onClickSearch();
+              handleSearch();
             }
           }}
-          value={question}
-          onChange={({ currentTarget: { value } }) => setQuestion(value)}
+          value={search}
+          onChange={({ currentTarget: { value } }) => setSearch(value)}
         />
-        <S.SearchButton onClick={onClickSearch}>Search</S.SearchButton>
-      </S.SearchWrapper>
+        <Style.SearchButton onClick={handleSearch}>Search</Style.SearchButton>
+      </Style.SearchWrapper>
 
-      {answer?.answer ? (
-        <S.AnswerWrapper>
-          <S.AnswerText>{answer.answer}</S.AnswerText>
-          <S.AnswerLink href={answer.url}>{answer.url}</S.AnswerLink>
-          <S.AnswerImageWrapper>
-            {answer.image ? <S.AnswerImage src={answer.image} /> : null}
-          </S.AnswerImageWrapper>
-        </S.AnswerWrapper>
-      ) : null}
-    </S.Wrapper>
+      <GraphQLAnswer ref={ref} serverSideData={serverSideData} />
+    </SharedStyle.Wrapper>
   );
 };
 

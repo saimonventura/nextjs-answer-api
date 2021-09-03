@@ -1,9 +1,12 @@
 import { gql } from "@apollo/client";
 
-export const GetRates = gql`
-  query GetRates {
-    rates(currency: "USD") {
-      currency
+export const ApolloAnswerQuery = gql`
+  query ($query: String) {
+    answer(query: $query)
+      @rest(path: "answer/Answer/Question?query={args.query}") {
+      answer
+      url
+      image
     }
   }
 `;
