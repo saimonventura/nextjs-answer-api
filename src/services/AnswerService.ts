@@ -1,19 +1,16 @@
+import axios from "axios";
 import { Dispatch, SetStateAction } from "react";
 import { AnswerResponseType } from "types/types";
-import { restApi } from "./restapi";
 
 export const AnswerService = {
   GetAnswer: async (
     query: string,
-    callback?: Dispatch<SetStateAction<AnswerResponseType | undefined>>
+    callback?: Dispatch<SetStateAction<AnswerResponseType | undefined>>,
   ): Promise<AnswerResponseType> => {
     try {
-      const { data } = await restApi.post<AnswerResponseType>(
-        "Answer/Question",
-        {
-          query,
-        }
-      );
+      const { data } = await axios.post<AnswerResponseType>("/api/answer", {
+        query,
+      });
 
       if (callback) {
         callback(data);

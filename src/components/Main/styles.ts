@@ -38,8 +38,34 @@ export const SearchWrapper = styled.div`
   margin: 2rem;
 `;
 
-export const InputQuestion = styled.input``;
+export const InputQuestion = styled.input`
+  font-size: large;
+  margin: 2rem;
+`;
 
-export const SearchButton = styled.button``;
+export const SearchButton = styled.button`
+  font-size: large;
+  margin: 2rem;
+`;
 
-export const AnswerWrapper = styled.div``;
+export const AnswerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const AnswerText = styled.h1`
+  margin: 2rem;
+`;
+
+export const AnswerLink = styled.a`
+  margin: 2rem;
+  font-size: 3rem;
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+`;
+
+export const AnswerImageWrapper = styled.div`
+  margin: 2rem;
+`;
+
+export const AnswerImage = styled.img``;

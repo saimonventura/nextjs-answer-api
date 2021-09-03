@@ -4,7 +4,7 @@
 
 - [x] Set up a Next.js app and commit the code to a public Github repository.
 
-- [ ] Add a homepage that allows the user to type a question and let the UI print the response for that given question using the Micro Answer REST API ([https://m3o.com/answer/](https://m3o.com/answer/)).
+- [x] Add a homepage that allows the user to type a question and let the UI print the response for that given question using the Micro Answer REST API ([https://m3o.com/answer/](https://m3o.com/answer/)).
 
 - [ ] Take over the *styleguide* of Jurata.ch to build this UI. You can use the browser developer tools to find some corresponding **css** values. Try to really focus on the details, such as typography attributes and distances.
 

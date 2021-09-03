@@ -20,13 +20,26 @@ const Main = ({
       <S.Description>{description}</S.Description>
       <S.SearchWrapper>
         <S.InputQuestion
+          onKeyDown={({ key }) => {
+            if (key === "Enter") {
+              onClickSearch();
+            }
+          }}
           value={question}
           onChange={({ currentTarget: { value } }) => setQuestion(value)}
         />
         <S.SearchButton onClick={onClickSearch}>Search</S.SearchButton>
       </S.SearchWrapper>
 
-      <S.AnswerWrapper>{JSON.stringify(answer)}</S.AnswerWrapper>
+      {answer?.answer ? (
+        <S.AnswerWrapper>
+          <S.AnswerText>{answer.answer}</S.AnswerText>
+          <S.AnswerLink href={answer.url}>{answer.url}</S.AnswerLink>
+          <S.AnswerImageWrapper>
+            {answer.image ? <S.AnswerImage src={answer.image} /> : null}
+          </S.AnswerImageWrapper>
+        </S.AnswerWrapper>
+      ) : null}
     </S.Wrapper>
   );
 };
