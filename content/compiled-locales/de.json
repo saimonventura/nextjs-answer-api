@@ -1,0 +1,32 @@
+{
+  "Loading": [
+    {
+      "type": 0,
+      "value": "Laden..."
+    }
+  ],
+  "NoResults": [
+    {
+      "type": 0,
+      "value": "Keine Ergebnisse gefunden"
+    }
+  ],
+  "Search": [
+    {
+      "type": 0,
+      "value": "Suche"
+    }
+  ],
+  "mainDescription": [
+    {
+      "type": 0,
+      "value": "TypeScript, React, NextJS, GraphQL, AnswerAPI und Styled Components"
+    }
+  ],
+  "mainTitle": [
+    {
+      "type": 0,
+      "value": "NextJS - AnswerAPI - GraphQL"
+    }
+  ]
+}
