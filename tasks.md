@@ -16,6 +16,6 @@
 
 - [ ] The user should be able to set the question as part of the url path and this should return the answer as server-side-rendered html.
 
-- [ ] Add internationalization for two languages. The user should have a way to switch between them.
+- [x] Add internationalization for two languages. The user should have a way to switch between them.
 
-- [ ] Create a short, but comprehensible README.md, that would allow a 10-year old with a Mac to test your app.
+- [x] Create a short, but comprehensible README.md, that would allow a 10-year old with a Mac to test your app.
