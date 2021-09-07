@@ -3,12 +3,9 @@ import { FC, useCallback, useRef, useState } from "react";
 import * as Type from "types/types";
 import * as Style from "./styles";
 import * as SharedStyle from "../sharedStyle";
+import { FormattedMessage } from "react-intl";
 
-const Main: FC<Type.MainProps> = ({
-  title = "NextJS - AnswerAPI - GraphQL",
-  description = "TypeScript, React, NextJS, GraphQL, AnswerAPI and Styled Components",
-  serverSideData,
-}) => {
+const Main: FC<Type.MainProps> = ({ serverSideData }) => {
   const [search, setSearch] = useState("");
 
   const ref = useRef<Type.GraphQLAnswer>(null);
@@ -19,8 +16,18 @@ const Main: FC<Type.MainProps> = ({
 
   return (
     <SharedStyle.Wrapper>
-      <Style.Title>{title}</Style.Title>
-      <Style.Description>{description}</Style.Description>
+      <Style.Title>
+        <FormattedMessage
+          defaultMessage="NextJS - AnswerAPI - GraphQL"
+          id="mainTitle"
+        />
+      </Style.Title>
+      <Style.Description>
+        <FormattedMessage
+          defaultMessage="TypeScript, React, NextJS, GraphQL, AnswerAPI and Styled Components"
+          id="mainDescription"
+        />
+      </Style.Description>
       <Style.SearchWrapper>
         <Style.InputQuestion
           onKeyDown={({ key }) => {
@@ -31,7 +38,9 @@ const Main: FC<Type.MainProps> = ({
           value={search}
           onChange={({ currentTarget: { value } }) => setSearch(value)}
         />
-        <Style.SearchButton onClick={handleSearch}>Search</Style.SearchButton>
+        <Style.SearchButton onClick={handleSearch}>
+          <FormattedMessage defaultMessage="Search" id="Search" />
+        </Style.SearchButton>
       </Style.SearchWrapper>
 
       <GraphQLAnswer ref={ref} serverSideData={serverSideData} />

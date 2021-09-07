@@ -6,6 +6,7 @@ import {
   ForwardRefRenderFunction,
   forwardRef,
 } from "react";
+import { FormattedMessage } from "react-intl";
 import * as Type from "types/types";
 import * as SharedStyle from "../sharedStyle";
 
@@ -25,10 +26,19 @@ const GraphQLAnswer: ForwardRefRenderFunction<
     return data?.answer || serverSideData?.answer;
   }, [data?.answer, serverSideData?.answer]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <FormattedMessage defaultMessage="Loading..." id="Loading" />
+      </div>
+    );
   if (error) {
     console.log(error);
-    return <div>No results found</div>;
+    return (
+      <div>
+        <FormattedMessage defaultMessage="No results found" id="NoResults" />
+      </div>
+    );
   }
 
   return answerData?.answer ? (
