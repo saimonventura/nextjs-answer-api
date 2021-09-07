@@ -18,4 +18,12 @@ npm install && npm run dev
 ```
 
 - the message will be displayed: "ready - started server on 0.0.0.0:3000, url: http://localhost:3000".
-- access the address http://localhost:3000 and see the result.
+- access the address [localhost:3000](localhost:3000) and see the result.
+
+## how see in production
+
+- [nextjs-answer-api.vercel.app](https://nextjs-answer-api.vercel.app)
+
+## tasks
+
+- [Tasks](./tasks.md)
